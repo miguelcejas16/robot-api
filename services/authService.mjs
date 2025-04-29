@@ -19,7 +19,7 @@ export const registerUser = async (userData) => {
     role: 'user',
   });
 
-  const token = generateToken(newUser._id, newUser.role);
+  const token = generateToken(newUser._id, newUser.role, newUser.username);
   return token;
 };
 
@@ -36,12 +36,12 @@ export const loginUser = async (userData) => {
     throw new Error('Credenciales inválidas');
   }
 
-  const token = generateToken(user._id, user.role);
+  const token = generateToken(user._id, user.role, user.username);
   return token;
 };
 
-const generateToken = (userId, role) => {
-  return jwt.sign({ id: userId, role }, process.env.JWT_SECRET, {
+const generateToken = (userId, role, username) => {
+  return jwt.sign({ id: userId, role, username }, process.env.JWT_SECRET, {
     expiresIn: '1h',
   });
 };

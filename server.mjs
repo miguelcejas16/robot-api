@@ -6,6 +6,7 @@ import authRoutes from './routes/authRoutes.mjs';
 import { protect } from './middlewares/authMiddleware.mjs';
 import { authorize } from './middlewares/roleMiddleware.mjs';
 import robotRoutes from './routes/robotRoutes.mjs';  
+import eventRoutes from './routes/eventRoutes.mjs';
 
 dotenv.config();
 
@@ -26,6 +27,9 @@ app.use(
     // luego en robotRoutes usaremos authorize() por ruta
     robotRoutes
   );
+
+app.use('/api/events', protect, eventRoutes); 
+// Protegiendo las rutas de eventos
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

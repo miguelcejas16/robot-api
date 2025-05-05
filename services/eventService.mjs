@@ -71,7 +71,7 @@ export const getEventsByRobotId = async (robotId) => {
     if (!robot) {
       throw new Error('Robot not found')
     }
-    const events = await Event.find({ robot: robotId }).populate('robot')
+    const events = await Event.find({ robot: robotId })
     return events
   } catch (error) {
     throw new Error('Error fetching events by robot ID: ' + error.message)

@@ -53,8 +53,8 @@ export const getAllEvents = async (req, res) => {
 // Filtrar eventos por robot
 export const filterEventsByRobot = async (req, res) => {
   try {
-    const { robotId } = req.query;
-    const events = await eventService.filterEventsByRobot(robotId);
+    const { robotId } = req.params;
+    const events = await eventService.getEventsByRobotId(robotId);
     res.json(events);
   } catch (error) {
     res.status(400).json({ error: error.message });

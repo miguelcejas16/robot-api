@@ -96,3 +96,5 @@ Debes primero registrarte (/api/auth/register) o iniciar sesión (/api/auth/logi
 * **`POST /api/events/`** - Crea un nuevo evento (requiere autorización de administrador).
 * **`PUT /api/events/:id`** - Actualiza un evento existente (requiere autorización de administrador).
 * **`DELETE /api/events/:id`** - Elimina un evento (requiere autorización de administrador).
+
+link del despliegue: https://robotsfamososapi.onrender.com
